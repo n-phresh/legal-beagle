@@ -7,7 +7,8 @@ This is the **legal-beagle** repo — a legal guidance library for AI bot creato
 This repo is a **context library**, not a codebase. It stores:
 - **Session prompts** (`prompts/`) — the Legal Beagle role definition
 - **Knowledge** (`knowledge/`) — plain-English reference docs on each legal topic
-- **Mailbox** (`mailbox/MAILBOX.md`) — persistent inbox of flagged items to revisit
+- **User knowledge** (`knowledge/user/`) — combined notes files saved when mailbox items are closed (topic summary + user's preferences/answers + tailored next steps)
+- **Mailbox** (`mailbox/MAILBOX.md`) — persistent inbox; only `open`/`in-progress` items are shown at session start; `closed` items move to Done and are hidden
 - **Work Items** (`work-items/`) — action items with status tracking
 - **Decisions** (`decisions/`) — formal choices the user has made (e.g. "chose LLC")
 - **Risk** (`risk/`) — known risks and how to treat them
@@ -23,7 +24,8 @@ This repo is a **context library**, not a codebase. It stores:
 ## When Working in This Repo
 
 - Load `prompts/legal-beagle.md` to understand the role
-- Check `mailbox/MAILBOX.md` for pinned items at session start
+- Check `mailbox/MAILBOX.md` for pinned items at session start — only display `open`/`in-progress`
 - Reference `knowledge/` files for topic-specific detail
+- After capturing user preferences, write combined file to `knowledge/user/LB-NNN-<slug>.md`
 - Append new work items to `work-items/` using the template
 - Record major decisions in `decisions/`
