@@ -1,8 +1,8 @@
 # Legal Beagle — Mailbox
 
-This file is your persistent inbox. Every time you start a `/legal-beagle` session, this file is opened and all items are surfaced.
+This file is your persistent inbox. Every time you start a `/legal-beagle` session, this file is opened and only `open` or `in-progress` items are displayed.
 
-Add items here when you want to come back to a topic. Mark items as `in-progress` or `done` as you work through them.
+Add items here when you want to come back to a topic. Mark items as `in-progress` while working, and `closed` when complete (a combined knowledge file is saved to `knowledge/user/` at that point).
 
 ---
 
@@ -65,3 +65,12 @@ Copy this template and append it to the Open Items section:
 ```
 
 Increment the number (LB-001, LB-002, ...) for each new item.
+
+## How Items Get Closed
+
+When you finish working an item and provide your preferences/answers, Legal Beagle will:
+1. Save a combined notes file to `knowledge/user/LB-NNN-<slug>.md`
+2. Change the item's status to `closed`
+3. Add a `**Notes file**:` pointer to the item
+4. Move it to the Done Items section below
+5. Stop surfacing it in future session displays
