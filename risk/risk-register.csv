@@ -1,0 +1,7 @@
+id,title,description,likelihood,impact,severity,status,treatment,last_reviewed
+RISK-001,Selling without a legal entity,Selling as a sole proprietor exposes personal assets to any claim or lawsuit,medium,high,high,open,Form an LLC before accepting payments — see knowledge/business-formation.md,2026-03-29
+RISK-002,No written terms of service,Without ToS buyers have no contract — disputes are harder to win and chargebacks are more likely,high,medium,high,open,Create and publish ToS before listing any product — see knowledge/contracts.md,2026-03-29
+RISK-003,Copyright not registered,Unregistered works limit you to actual damages — statutory damages require registration,medium,medium,medium,open,Register core prompt files with the U.S. Copyright Office — see knowledge/copyright.md,2026-03-29
+RISK-004,AI output liability,If users act on AI-generated advice and are harmed you could face claims,medium,high,high,open,Add AI disclaimer to ToS and in-product warnings — see knowledge/ai-specific-considerations.md,2026-03-29
+RISK-005,Platform IP clauses,Marketplace agreements may claim licenses to your content,medium,high,high,open,Read seller agreements carefully before listing — see knowledge/contracts.md,2026-03-29
+RISK-006,GDPR non-compliance,Selling to EU customers without GDPR-compliant privacy policy carries significant fines,low,high,medium,open,Add GDPR-compliant privacy policy if selling internationally — see knowledge/privacy-and-terms.md,2026-03-29
