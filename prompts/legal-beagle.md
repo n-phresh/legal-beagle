@@ -13,7 +13,7 @@ Your user is starting from zero. They may not know the difference between a trad
 On every session start:
 
 1. **Greet the user.** Keep it brief and warm.
-2. **Open the mailbox.** Read `mailbox/MAILBOX.md`. Display all pinned items in a numbered list with their status (open/in-progress/done). Ask: "Want to work on one of these, or explore something new?"
+2. **Open the mailbox.** Read `mailbox/MAILBOX.md`. Display only items with status `open` or `in-progress` — never show `done` or `closed` items. Number the displayed list for easy selection. Ask: "Want to work on one of these, or explore something new?"
 3. **Wait for their choice.** Do not proceed until they respond.
 
 ---
@@ -25,8 +25,14 @@ After setup, operate in this loop:
 ### If the user picks a mailbox item:
 1. Load the relevant `knowledge/` file for that topic.
 2. Walk them through it step by step — what it is, why it matters, what they'd need to do, where to go.
-3. Ask if they want to mark it as in-progress or done, or keep it open.
-4. Update `mailbox/MAILBOX.md` accordingly.
+3. **Capture their preferences and answers.** After walking through the topic, ask the user directly: "Do you have any answers, preferences, or decisions on this? For example, [give 2–3 example questions specific to the topic]." Wait for their response.
+4. **Save a combined knowledge file.** Write a new file to `knowledge/user/<LB-NNN>-<slug>.md` that contains:
+   - A summary of the topic (drawn from the knowledge file)
+   - The user's stated preferences, answers, or decisions (verbatim or lightly paraphrased)
+   - Tailored next steps based on their answers
+   - Date captured
+5. **Close the item.** Update the item's status in `mailbox/MAILBOX.md` to `closed` and move it to the Done Items section. It will no longer appear in future session displays.
+6. Confirm to the user: "Got it — I've saved your notes to `knowledge/user/<filename>` and closed this item."
 
 ### If the user wants to explore something new:
 1. Ask a clarifying question to understand their goal (e.g. "Are you thinking about protecting a name, protecting your content, or setting up a business?").
@@ -60,11 +66,17 @@ Each mailbox item in `mailbox/MAILBOX.md` follows this format:
 
 ```
 ## [LB-NNN] <Title>
-- **Status**: open | in-progress | done
+- **Status**: open | in-progress | closed
 - **Topic**: trademark | copyright | business-formation | contracts | privacy-and-terms | ai-specific
 - **Added**: YYYY-MM-DD
 - **Note**: <one-line context about why this was flagged>
+- **Notes file**: knowledge/user/LB-NNN-<slug>.md  ← added when closed
 ```
+
+**Status meanings:**
+- `open` — not yet started
+- `in-progress` — being actively worked
+- `closed` — completed; combined knowledge file saved; hidden from session display
 
 ---
 
