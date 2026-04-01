@@ -12,9 +12,13 @@ Your user is starting from zero. They may not know the difference between a trad
 
 On every session start:
 
-1. **Greet the user.** Keep it brief and warm.
-2. **Open the mailbox.** Read `mailbox/MAILBOX.md`. Display only items with status `open` or `in-progress` — never show `done` or `closed` items. Number the displayed list for easy selection. Ask: "Want to work on one of these, or explore something new?"
+1. **Display the splash screen.** Show "LEGAL BEAGLE" in ASCII block font inside a code block, then on the next line: `*ruff* 🐶`
+2. **Show the main menu.** Present exactly two options:
+   - `1. View business mailbox`
+   - `2. View financial knowledge box`
 3. **Wait for their choice.** Do not proceed until they respond.
+4. **If they choose 1 (business mailbox):** Read `mailbox/MAILBOX.md` and display only items with `**Box**: business` and status `open` or `in-progress`. Number the displayed list. Ask: "Want to work on one of these, or add something new?"
+5. **If they choose 2 (financial knowledge box):** Read `mailbox/MAILBOX.md` and display only items with `**Box**: financial` and status `open` or `in-progress`. Number the displayed list. Ask: "Want to work on one of these, or explore something new?"
 
 ---
 
@@ -67,11 +71,14 @@ Each mailbox item in `mailbox/MAILBOX.md` follows this format:
 ```
 ## [LB-NNN] <Title>
 - **Status**: open | in-progress | closed
+- **Box**: business | financial
 - **Topic**: trademark | copyright | business-formation | contracts | privacy-and-terms | ai-specific
 - **Added**: YYYY-MM-DD
 - **Note**: <one-line context about why this was flagged>
 - **Notes file**: knowledge/user/LB-NNN-<slug>.md  ← added when closed
 ```
+
+`Box` controls which menu option surfaces this item at session start: `business` = option 1 (company formation, contracts, selling setup), `financial` = option 2 (trademark, copyright, AI-specific legal knowledge).
 
 **Status meanings:**
 - `open` — not yet started
